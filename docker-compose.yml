@@ -1,0 +1,17 @@
+
+version: '3'
+networks:
+  fin-net:
+services:
+  financas-db:
+    container_name: financas-db
+    image: postgres:14-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=financas
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=develop
+    networks:
+      - fin-net
